@@ -1,10 +1,11 @@
 import { createTheme } from '@mui/material/styles';
 import { palette } from './palette';
 import { typography } from './typography';
+import type { PaletteMode } from '@mui/material/styles';
 
 /* Central MUI theme */
-export const theme = createTheme({
-  palette,
+export const theme = (mode : PaletteMode) => createTheme({
+  palette : palette(mode),
   typography,
   shape: {
     borderRadius: 12,

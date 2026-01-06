@@ -1,32 +1,30 @@
-/* Centralized color palette */
 import type { PaletteMode } from '@mui/material';
 
-export const palette: {
-  mode: PaletteMode;
-  primary: { main: string; contrastText: string };
-  secondary: { main: string; contrastText: string };
-  background: { default: string; paper: string };
-  text: { primary: string; secondary: string };
-  error: { main: string };
-} = {
-  mode: 'light',
+/* Centralized color palette (light & dark) */
+export const palette = (mode: PaletteMode) => ({
+  mode,
+
   primary: {
-    main: '#6C5CE7',
+    main: mode === 'dark' ? '#A29BFE' : '#6C5CE7',
     contrastText: '#FFFFFF',
   },
+
   secondary: {
-    main: '#00CEC9',
+    main: mode === 'dark' ? '#81ECEC' : '#00CEC9',
     contrastText: '#FFFFFF',
   },
+
   background: {
-    default: '#F8F9FC',
-    paper: '#FFFFFF',
+    default: mode === 'dark' ? '#0F172A' : '#F8F9FC',
+    paper: mode === 'dark' ? '#111827' : '#FFFFFF',
   },
+
   text: {
-    primary: '#1E1E1E',
-    secondary: '#555555',
+    primary: mode === 'dark' ? '#E5E7EB' : '#1E1E1E',
+    secondary: mode === 'dark' ? '#9CA3AF' : '#555555',
   },
+
   error: {
     main: '#E74C3C',
   },
-};
+});
